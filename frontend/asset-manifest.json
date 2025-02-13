@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/new-soundcloud-links/static/css/main.e6c13ad2.css",
+    "main.js": "/new-soundcloud-links/static/js/main.a7210f9d.js",
+    "static/js/488.e75445ad.chunk.js": "/new-soundcloud-links/static/js/488.e75445ad.chunk.js",
+    "index.html": "/new-soundcloud-links/index.html",
+    "main.e6c13ad2.css.map": "/new-soundcloud-links/static/css/main.e6c13ad2.css.map",
+    "main.a7210f9d.js.map": "/new-soundcloud-links/static/js/main.a7210f9d.js.map",
+    "488.e75445ad.chunk.js.map": "/new-soundcloud-links/static/js/488.e75445ad.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.a7210f9d.js"
+  ]
+}
