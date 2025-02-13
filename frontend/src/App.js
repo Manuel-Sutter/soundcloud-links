@@ -19,6 +19,13 @@ const App = () => {
       );
       if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
       const data = await response.json();
+      
+      // Transform the thumbnail URL to use the 48x48 size
+      if (data.thumbnail_url) {
+        // Replace t500x500 with t50x50 in the URL
+        data.thumbnail_url = data.thumbnail_url.replace('t500x500', 't50x50');
+      }
+      
       return data;
     } catch (error) {
       console.error("Error fetching oEmbed data:", error);
@@ -85,22 +92,24 @@ const App = () => {
   return (
     <div className="app-container">
       <div className="content-wrapper">
-        <h1 className="title">🎶 Disco Disco 🎶</h1>
+        <div className="header-section">
+          <h1 className="title">🎶 Disco Disco 🎶</h1>
+          
+          <form onSubmit={handleAddLink} className="link-form">
+            <input
+              type="text"
+              value={url}
+              onChange={handleUrlChange}
+              placeholder="Enter SoundCloud URL"
+              className="url-input rounded"
+            />
+            <button type="submit" className="add-button rounded">
+              Add Link
+            </button>
+          </form>
+        </div>
 
-        <form onSubmit={handleAddLink} className="link-form">
-          <input
-            type="text"
-            value={url}
-            onChange={handleUrlChange}
-            placeholder="Enter SoundCloud URL"
-            className="url-input rounded"
-          />
-          <button type="submit" className="add-button rounded">
-            Add Link
-          </button>
-        </form>
-
-        <div className="links-list">
+        <div className="links-container">
           {links.map((link) => (
             <div key={link._id} className="link-card">
               <div className="link-content">
