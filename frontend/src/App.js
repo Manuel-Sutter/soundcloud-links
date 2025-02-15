@@ -36,7 +36,7 @@ const App = () => {
   // Modify fetchLinks to include oEmbed data
   const fetchLinks = async () => {
     try {
-      const response = await fetch("http://localhost:5000/links");
+      const response = await fetch("/api/links");
       if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
       const data = await response.json();
@@ -66,7 +66,7 @@ const App = () => {
 
     if (url) {
       try {
-        const response = await fetch("http://localhost:5000/links", {
+        const response = await fetch("/api/links", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ url }),
